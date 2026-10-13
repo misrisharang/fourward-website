@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 4.3%;
+        --foreground: 48 18% 95%;
+        --card: 0 0% 9%;
+        --card-foreground: 48 18% 95%;
+        --popover: 0 0% 9%;
+        --popover-foreground: 48 18% 95%;
+        --primary: 76 84% 69%;
+        --primary-foreground: 0 0% 4.3%;
+        --secondary: 0 0% 9%;
+        --secondary-foreground: 48 18% 95%;
+        --muted: 0 0% 9%;
+        --muted-foreground: 0 0% 44%;
+        --accent: 76 84% 69%;
+        --accent-foreground: 0 0% 4.3%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 15%;
+        --input: 0 0% 15%;
+        --ring: 76 84% 69%;
+        --radius: 0.25rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    html {
+        scroll-behavior: auto;
+    }
+    body {
+        background-color: #0b0b0b;
+        color: #f5f4ef;
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+    }
+    ::selection {
+        background: #c7f36b;
+        color: #0b0b0b;
+    }
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+/* Custom cursor takes over on precise pointers only */
+@media (hover: hover) and (pointer: fine) {
+    body,
+    a,
+    button,
+    [role="button"],
+    label,
+    summary {
+        cursor: none;
+    }
+}
+
+/* Editorial marquee */
+@keyframes fw-marquee {
+    to {
+        transform: translateX(-50%);
+    }
+}
+.marquee-track {
+    width: max-content;
+    animation: fw-marquee 46s linear infinite;
+}
+
+/* Lane pulse for hero / final CTA backgrounds */
+@keyframes fw-lane-pulse {
+    0%,
+    100% {
+        opacity: 0.35;
+        transform: scaleY(0.92);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scaleY(1);
+    }
+}
+
+/* Film grain */
+.grain-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+/* Link underline micro-interaction */
+.link-line {
+    position: relative;
+}
+.link-line::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-line:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+        animation: none;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-top-color: inherit;
+        border-right-color: inherit;
+        border-bottom-color: inherit;
+        border-left-color: inherit;
+    }
+}
