@@ -1,12 +1,12 @@
 // FOURWARD — all site content in one editable structure.
 
 export const IMAGES = {
-  eventDinner: "/images/eventDinner.jpg",
-  banquet: "/images/banquet.jpg",
-  delhi: "/images/delhi.jpg",
-  concrete: "/images/concrete.jpg",
-  dataGrid: "/images/dataGrid.jpg",
-  circuit: "/images/circuit.jpg",
+  eventDinner: `${import.meta.env.BASE_URL}images/eventDinner.jpg`,
+  banquet: `${import.meta.env.BASE_URL}images/banquet.jpg`,
+  delhi: `${import.meta.env.BASE_URL}images/delhi.jpg`,
+  concrete: `${import.meta.env.BASE_URL}images/concrete.jpg`,
+  dataGrid: `${import.meta.env.BASE_URL}images/dataGrid.jpg`,
+  circuit: `${import.meta.env.BASE_URL}images/circuit.jpg`,
 };
 
 export const LANE_NAMES = ["SEARCH", "BRAND", "LIFECYCLE", "FIELD"];

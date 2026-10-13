@@ -36,6 +36,16 @@ The contact form (`src/components/ContactModal.jsx`) posts to `POST /api/leads`,
 Copy `.env.example` to `.env` and set `VITE_BACKEND_URL` once the backend exists.
 Until then, submitting the contact form will show an error.
 
+## Shareable preview (GitHub Pages)
+
+Live at https://misrisharang.github.io/fourward-website/
+
+```bash
+npm run deploy   # builds and publishes to the gh-pages branch
+```
+
+Pushing to `main` does not update the live site — run `npm run deploy` after pushing.
+
 ## Deploy (Netlify via GitHub)
 
 `netlify.toml` is already set up: build command `npm run build`, publish directory `dist`,

@@ -78,7 +78,7 @@ export default function App() {
 
   return (
     <SiteContext.Provider value={{ contactOpen, openContact, closeContact, scrollTo, lenisRef }}>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <div className="grain-overlay pointer-events-none fixed inset-0 z-[5] opacity-[0.05]" aria-hidden="true" />
         <Cursor />
         <Routes>

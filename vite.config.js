@@ -3,6 +3,8 @@ import react from "@vitejs/plugin-react";
 import path from "node:path";
 
 export default defineConfig({
+  // GitHub Pages serves the site under /fourward-website/; the deploy workflow sets BASE_PATH.
+  base: process.env.BASE_PATH || "/",
   plugins: [react()],
   resolve: {
     alias: {
